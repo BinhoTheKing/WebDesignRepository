@@ -1,5 +1,6 @@
 {
     "elements": {
+        "md-tabs": {},
         "md-content": {}
     },
     "attributes": {}
