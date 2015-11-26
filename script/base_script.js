@@ -1,5 +1,5 @@
-var app = angular.module('toolbarDemo1', ['ngMaterial']);
-app.config(function ($mdThemingProvider) {
+var cyborgWeb = angular.module('cyborgWeb', ['ngMaterial', 'ngRoute']);
+cyborgWeb.config(function ($mdThemingProvider, $routeProvider) {
     $mdThemingProvider.definePalette('brass', {
         '50': 'd8cf95',
         '100': 'd3c986',
@@ -53,8 +53,52 @@ app.config(function ($mdThemingProvider) {
 //    $mdThemingProvider.theme('default')
 //            .primaryPalette('grey')
 //            .accentPalette('red');
+    $routeProvider
+            .when('/',
+                    {
+                        controller: 'HomeCtrl',
+                        templateUrl: 'partials/homeView.php'
+                    })
+            .when('/clients',
+                    {
+                        templateUrl: 'partials/clientView.php'
+                    })
+            .otherwise({redirectTo: '/'});
+
 });
-app.controller('AppCtrl', function ($scope) {
+cyborgWeb.controller('AppCtrl', function ($scope, $location) {
+    $scope.selectedIndex = 0;
+    $scope.$watch('selectedIndex', function (current, old) {
+        switch (current){
+            case 0:
+                $location.url('/');
+                break;
+            case 3:
+                $location.url('/clients');
+                break;
+        }
+    });
+});
+
+cyborgWeb.controller('HomeCtrl', function ($scope) {
+    $scope.cardNews = [
+        {
+            imagePath: 'imagensWeb/Wemple-Weather-icon.png',
+            headline: 'Vel offendit',
+            subhead: 'Denique detraxit ut duo, ea qui melius vocent.' +
+                    'In mel dicat consul menandri. Nec eu porro quodsi molestie, ' +
+                    'quo tation integre salutatus an. Populo copiosae inimicus ius et, ' +
+                    'qualisque intellegam pri eu, mea animal posidonium ad. ' +
+                    'Mundi fuisset eu mel, ea per molestiae assentior.'
+        },
+        {
+            imagePath: 'imagensWeb/Wemple-Weather-icon.png',
+            headline: 'Omnis lorem',
+            subhead: 'Quo vitae quaeque reformidans ei. ' +
+                    'Mel et labitur officiis referrentur, wisi tempor consequat qui et.' +
+                    'His no justo platonem. At sit affert mollis cotidieque.'
+        }
+    ];
 });
 
 
