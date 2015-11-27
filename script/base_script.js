@@ -61,6 +61,7 @@ cyborgWeb.config(function ($mdThemingProvider, $routeProvider) {
                     })
             .when('/clients',
                     {
+                        controller: 'ClientCtrl',
                         templateUrl: 'partials/clientView.php'
                     })
             .otherwise({redirectTo: '/'});
@@ -69,7 +70,7 @@ cyborgWeb.config(function ($mdThemingProvider, $routeProvider) {
 cyborgWeb.controller('AppCtrl', function ($scope, $location) {
     $scope.selectedIndex = 0;
     $scope.$watch('selectedIndex', function (current, old) {
-        switch (current){
+        switch (current) {
             case 0:
                 $location.url('/');
                 break;
@@ -83,7 +84,7 @@ cyborgWeb.controller('AppCtrl', function ($scope, $location) {
 cyborgWeb.controller('HomeCtrl', function ($scope) {
     $scope.cardNews = [
         {
-            imagePath: 'imagensWeb/Wemple-Weather-icon.png',
+            imagePath: 'imagensWeb/ww.png',
             headline: 'Vel offendit',
             subhead: 'Denique detraxit ut duo, ea qui melius vocent.' +
                     'In mel dicat consul menandri. Nec eu porro quodsi molestie, ' +
@@ -92,13 +93,59 @@ cyborgWeb.controller('HomeCtrl', function ($scope) {
                     'Mundi fuisset eu mel, ea per molestiae assentior.'
         },
         {
-            imagePath: 'imagensWeb/Wemple-Weather-icon.png',
+            imagePath: 'imagensWeb/ww.png',
             headline: 'Omnis lorem',
             subhead: 'Quo vitae quaeque reformidans ei. ' +
                     'Mel et labitur officiis referrentur, wisi tempor consequat qui et.' +
                     'His no justo platonem. At sit affert mollis cotidieque.'
         }
     ];
+});
+
+cyborgWeb.controller('ClientCtrl', function ($scope) {
+
+
+    $scope.getImageSpansFromPath = function (imagePath)
+    {
+        var image = new Image();
+        var clientImage = {};
+        var size = {};
+        var ver = size;
+        image.onload = function () {
+            size.width = this.width;
+            size.height = this.height;
+        };
+        image.src = imagePath;
+        clientImage.path = imagePath;
+        clientImage = $scope.getSizeSpans(size);
+        return clientImage;
+    };
+
+    $scope.getSizeSpans = function (size) {
+        var spans = {};
+        spans.col = size.width / size.height * 12;
+        spans.row = size.height / size.width * 12;
+        return spans;
+    };
+    $scope.clients = [
+        {
+            name: 'Cliente X',
+            clientImage: $scope.getImageSpansFromPath('imagensWeb/unnamed.png')
+        },
+        {
+            name: 'Cliente Z',
+            clientImage: $scope.getImageSpansFromPath('imagensWeb/wc.png')
+        },
+        {
+            name: 'Cliente K',
+            clientImage: $scope.getImageSpansFromPath('imagensWeb/wk.png')
+        },
+        {
+            name: 'Cliente Y',
+            clientImage: $scope.getImageSpansFromPath('imagensWeb/ww.png')
+        }
+    ];
+
 });
 
 
