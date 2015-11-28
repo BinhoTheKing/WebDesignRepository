@@ -130,19 +130,19 @@ cyborgWeb.controller('ClientCtrl', function ($scope) {
     $scope.clients = [
         {
             name: 'Cliente X',
-            clientImage: $scope.getImageSpansFromPath('imagensWeb/unnamed.png')
+            clientImage: 'imagensWeb/unnamed.png'
         },
         {
             name: 'Cliente Z',
-            clientImage: $scope.getImageSpansFromPath('imagensWeb/wc.png')
+            clientImage: 'imagensWeb/wc.png'
         },
         {
             name: 'Cliente K',
-            clientImage: $scope.getImageSpansFromPath('imagensWeb/wk.png')
+            clientImage: 'imagensWeb/wk.png'
         },
         {
             name: 'Cliente Y',
-            clientImage: $scope.getImageSpansFromPath('imagensWeb/ww.png')
+            clientImage: 'imagensWeb/ww.png'
         }
     ];
 
