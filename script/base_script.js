@@ -64,7 +64,12 @@ cyborgWeb.config(function ($mdThemingProvider, $routeProvider) {
                         controller: 'ClientCtrl',
                         templateUrl: 'partials/clientView.php'
                     })
-            .otherwise({redirectTo: '/'});
+            .when('/404',
+                    {
+                        controller:'',
+                        templateUrl: 'partials/404.php'
+                    })
+            .otherwise({redirectTo: '/404'});
 
 });
 cyborgWeb.controller('AppCtrl', function ($scope, $location) {
@@ -76,6 +81,9 @@ cyborgWeb.controller('AppCtrl', function ($scope, $location) {
                 break;
             case 3:
                 $location.url('/clients');
+                break;
+            default:
+                $location.url('/404');
                 break;
         }
     });

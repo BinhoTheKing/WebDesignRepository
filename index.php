@@ -41,13 +41,13 @@
                     </md-button>
                 </div>
             </md-toolbar>
-            <md-tabs md-selected="selectedIndex" class="md-primary" md-center-tabs md-dynamic-height>
+            <md-tabs md-selected="selectedIndex" class="md-primary" md-center-tabs>
                 <md-tab layout="row"><a link="#/">home</a></md-tab>
-                <md-tab label="portifólio"></md-tab>
-                <md-tab label="tecnologias"></md-tab>
+                <md-tab><a link="#/portifólio">portifólio</a></md-tab>
+                <md-tab><a link="#/tecnologias">tecnologias</a></md-tab>
                 <md-tab><a link="#/clients">clientes</a></md-tab>
-                <md-tab label="depoimentos"></md-tab>
-                <md-tab label="contato"></md-tab>
+                <md-tab><a link="#/depoimentos">depoimentos</a></md-tab>
+                <md-tab><a link="#/contato">contato</a></md-tab>
             </md-tabs>
             <div id="content" ng-view>
 
