@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="https://gitcdn.xyz/repo/angular/bower-material/master/angular-material.css">
         <title>Cyborg Developers</title>
     </head>
-    <body ng-controller="AppCtrl" ng-cloak layout-fill>
+    <body ng-controller="AppCtrl as main" ng-cloak layout-fill>
         <div>
             <md-toolbar md-scroll-shrink ng-if="true" class="md-primary">
                 <div class="md-toolbar-tools">
@@ -23,25 +23,9 @@
                         <span>Cyborg Developers</span>
                     </h2>
                     <span flex=""></span>
-                    <md-button class="md-icon-button" aria-label="Favorite">
-                        <md-icon style="color: #eed009;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fit="" preserveAspectRatio="xMidYMid meet" style="pointer-events: none; display: block;">
-                            <path d="M0 0h24v24h-24z" fill="none"></path>
-                            <path d="M12 21.35l-1.45-1.32c-5.15-4.67-8.55-7.75-8.55-11.53 0-3.08 2.42-5.5 5.5-5.5 1.74 0 3.41.81 4.5 2.09 1.09-1.28 2.76-2.09 4.5-2.09 3.08 0 5.5 2.42 5.5 5.5 0 3.78-3.4 6.86-8.55 11.54l-1.45 1.31z"></path>
-                            </svg>
-                        </md-icon>
-                    </md-button>
-                    <md-button class="md-icon-button" aria-label="More">
-                        <md-icon>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 18 18" fit="" preserveAspectRatio="xMidYMid meet" style="pointer-events: none; display: block;">
-                            <path d="M0 0h18v18h-18z" fill="none"></path>
-                            <path d="M9 5.5c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5-1.5.67-1.5 1.5.67 1.5 1.5 1.5zm0 2c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5zm0 5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z"></path>
-                            </svg>
-                        </md-icon>
-                    </md-button>
                 </div>
             </md-toolbar>
-            <md-tabs md-selected="selectedIndex" class="md-primary" md-center-tabs>
+            <md-tabs md-selected="main.selectedIndex" class="md-primary" md-center-tabs>
                 <md-tab layout="row"><a link="#/">home</a></md-tab>
                 <md-tab><a link="#/portifólio">portifólio</a></md-tab>
                 <md-tab><a link="#/tecnologias">tecnologias</a></md-tab>
