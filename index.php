@@ -1,15 +1,14 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html ng-app="cyborgWeb">
     <head>
-        <meta name="viewport" content="initial-scale=1" />
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="style/base_style.css"/> <!-- Angular Material CSS using GitCDN to load directly from `bower-material/master` -->
         <link rel="stylesheet" href="https://gitcdn.xyz/repo/angular/bower-material/master/angular-material.css">
         <title>Cyborg Developers</title>
     </head>
     <body ng-controller="AppCtrl as main" ng-cloak layout-fill>
-        <div>
-            <md-toolbar md-scroll-shrink ng-if="true" class="md-primary">
+        <div style="overflow:hidden">
+            <md-toolbar md-scroll-shrink class="md-primary">
                 <div class="md-toolbar-tools">
                     <!--            <md-button class="md-icon-button" aria-label="Settings">
                                     <md-icon>
@@ -33,9 +32,9 @@
                 <md-tab><a link="#/depoimentos">depoimentos</a></md-tab>
                 <md-tab><a link="#/contato">contato</a></md-tab>
             </md-tabs>
-            <div id="content" ng-view>
+            <md-content style="height:100%" ng-view>
 
-            </div>
+            </md-content>
 
         </div>
         <!--Fim AppTeste-->
@@ -44,6 +43,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-animate.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-aria.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-route.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-material-icons/0.6.0/angular-material-icons.min.js"></script>
 
         <script src="script/angular-material.js"></script>
         <script src="script/base_script.js"></script>

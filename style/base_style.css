@@ -20,3 +20,11 @@
     float: left;
     margin: auto;
 }
+
+md-card{
+    -webkit-transition: 150ms linear;
+    -moz-transition: 150ms linear;
+    -o-transition: 150ms linear;
+    transition: 150ms linear;
+}
+

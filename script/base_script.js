@@ -1,4 +1,4 @@
-var cyborgWeb = angular.module('cyborgWeb', ['ngMaterial', 'ngRoute']);
+var cyborgWeb = angular.module('cyborgWeb', ['ngMaterial', 'ngRoute', 'ngMdIcons']);
 
 cyborgWeb.config(['$mdThemingProvider', '$routeProvider', function ($mdThemingProvider, $routeProvider) {
         $mdThemingProvider.definePalette('brass', {
@@ -58,17 +58,21 @@ cyborgWeb.config(['$mdThemingProvider', '$routeProvider', function ($mdThemingPr
                 .when('/',
                         {
                             controller: 'HomeCtrl',
-                            templateUrl: 'partials/homeView.php'
+                            templateUrl: 'partials/home-view.php'
                         })
                 .when('/clients',
                         {
                             controller: 'ClientCtrl',
-                            templateUrl: 'partials/clientView.php'
+                            templateUrl: 'partials/client-view.php'
                         })
                 .when('/testimonials',
                         {
                             controller: 'TestimonalCtrl',
-                            templateUrl: 'partials/testimonialsView.php'
+                            templateUrl: 'partials/testimonials-view.php'
+                        })
+                .when('/contactUs',
+                        {
+                            templateUrl: 'partials/contact-us.php'
                         })
                 .when('/404',
                         {
@@ -92,14 +96,17 @@ cyborgWeb.controller('AppCtrl', ['$scope', '$location',
         this.selectedIndex = 0;
         $scope.$watch('self.selectedIndex', function (current) {
             switch (current) {
-                case HOME:
-                    $location.url('/404');
-                    break;
+//                case HOME:
+//                    $location.url('/404');
+//                    break;
                 case CLIENTES:
                     $location.url('/clients');
                     break;
                 case DEPOIMENTOS:
                     $location.url('/testimonials');
+                    break;
+                case CONTATO:
+                    $location.url('/contactUs');
                     break;
                 default:
                     $location.url('/404');
@@ -117,6 +124,7 @@ cyborgWeb.controller('TestimonalCtrl', function () {
             case 0:
                 this.cardNews.push(
                         {
+                            elevation: false,
                             imagePath: 'imagensWeb/wk.png',
                             headline: 'Omnis lorem',
                             subhead: 'Quo vitae quaeque reformidans ei. ' +
@@ -127,6 +135,7 @@ cyborgWeb.controller('TestimonalCtrl', function () {
             case 1:
                 this.cardNews.push(
                         {
+                            elevation: false,
                             imagePath: 'imagensWeb/ww.png',
                             headline: 'Vel offendit',
                             subhead: 'Denique detraxit ut duo, ea qui melius vocent.' +
