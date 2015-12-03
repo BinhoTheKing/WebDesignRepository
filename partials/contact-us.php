@@ -1,4 +1,8 @@
-<div layout='row' layout-align='center'>
+<div layout='column'>
+    <section>
+        
+    </section>
+    <section layout='row' layout-align='center'>
     <form flex='70' layout="column" name="userForm">
         <div layout>
             <md-input-container flex>
@@ -8,4 +12,5 @@
             <md-datepicker ng-model="contact.date" md-placeholder="Data"></md-datepicker>
         </div>
     </form>
+    </section>
 </div>

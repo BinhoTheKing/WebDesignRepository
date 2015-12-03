@@ -113,6 +113,16 @@ cyborgWeb.controller('AppCtrl', ['$scope', '$location',
                     break;
             }
         });
+        this.toolbarCondensed = false;
+
+        //listen for the toolbar to be condensed, then set the scope variable
+        $scope.$on('$mdToolbarCondensed', function (toolbarElement) {
+            this.toolbarCondensed = true;
+        });
+        //listen for the toolbar to be expanded, then set the scope variable
+        $scope.$on('$mdToolbarExpanded', function (toolbarElement) {
+            this.toolbarCondensed = false;
+        });
     }]);
 
 
@@ -178,6 +188,18 @@ cyborgWeb.directive('mdTestiCard', function () {
             card: '='
         },
         templateUrl: 'partials/md-testi-card.php'
+    };
+});
+
+cyborgWeb.directive('activateOnScroll', function () {
+    return{
+        restrict: 'A',
+        link: ['$document', function (scope, element, attrs, $document) {
+
+                element.bind('scroll', function () {
+                    $document.find();
+                });
+            }]
     };
 });
 
