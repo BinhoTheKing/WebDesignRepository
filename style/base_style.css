@@ -21,6 +21,51 @@
     margin: auto;
 }
 
+/*[md-header-picture] {
+    position: relative;
+    width:50%;
+    height:0;  Simple trick to keep a 16:9 ratio on your background image (height=0;padding-bottom=56.25%) 
+    padding-bottom: 56.25%;
+    overflow:hidden;
+    background-size:160%;  You can override this value if your picture has a weird ratio 
+    background-position:50% 50%;
+}*/
+
+[scroll] {
+  position:fixed;
+  top:0;
+}
+
+/* I made a simple scale animation on float action button during scroll */
+
+.main-fab {
+  position:absolute;
+  left: calc(100% - 70px);
+  z-index: 20;
+  transform:scale(1,1);
+  transition: transform .1s ease-out;
+}
+
+.main-fab.hide {
+  transform:scale(0,0);
+  transition: transform .1s ease-out;
+}
+
+/*
+[scroll]{
+    position: fixed;
+    top:0;
+}
+
+.scroll-over-toolbar{
+    transform: translateY(-64px);
+    transition: 0.1s;
+}*/
+
+section{
+    margin-top: 112px;
+}
+
 md-card{
     -webkit-transition: 150ms linear;
     -moz-transition: 150ms linear;
