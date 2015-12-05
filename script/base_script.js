@@ -39,21 +39,9 @@ cyborgWeb.config(['$mdThemingProvider', '$routeProvider', function ($mdThemingPr
             'contrastDarkColors': ['50', '100']
 
         });
-
-//    var reallyRedMap = $mdThemingProvider.extendPalette('red', {
-//        '400': '#E84C3D'
-//    });
-//    // Register the new color palette map with the name <code>darkGrey</code>
-//    $mdThemingProvider.definePalette('darkGrey', darkGreyMap);
-//    $mdThemingProvider.definePalette('reallyRed', reallyRedMap);
-        // Use that theme for the primary intentions
         $mdThemingProvider.theme('default')
                 .primaryPalette('brownLeather')
                 .accentPalette('brass');
-//            .backgroundPalette('blue-grey');
-//    $mdThemingProvider.theme('default')
-//            .primaryPalette('grey')
-//            .accentPalette('red');
         $routeProvider
                 .when('/',
                         {
@@ -96,9 +84,9 @@ cyborgWeb.controller('AppCtrl', ['$scope', '$location',
         this.selectedIndex = 0;
         $scope.$watch('self.selectedIndex', function (current) {
             switch (current) {
-//                case HOME:
-//                    $location.url('/404');
-//                    break;
+                case HOME:
+                    $location.url('/404');
+                    break;
                 case CLIENTES:
                     $location.url('/clients');
                     break;
@@ -196,93 +184,7 @@ cyborgWeb.directive("scroll", function($window) {
 });
 
 
-//        .directive('scroll', ['$window', function ($window) {
-//        return function (scope, element, attrs) {
-//
-//            /* header DOM element with md-page-header attribute */
-//            var header = document.querySelector('[md-page-header]');
-//
-//            /* Store header dimensions to initialize header styling */
-//            var baseDimensions = header.getBoundingClientRect();
-//
-//            /* DOM element with md-header-title attribute (title in toolbar) */
-//            var title = angular.element(document.querySelector('[md-header-title]'));
-//
-//            /* DOM element with md-scroll-tabs attribute (tabs in tollbar) */
-//            var tabs = angular.element(document.querySelector('[md-scroll-tabs]'));
-//
-//            /* The height of a toolbar by default in Angular Material */
-//            var legacyToolbarH = 64;
-//
-//            /* The zoom scale of the toolbar title when it's placed at the top of the header */
-//            var titleZoom = 1.5;
-//
-//            /* The primary color palette used by Angular Material *
-//             var primaryColor = [63, 81, 181];
-//             */
-//
-//
-//
-//            function styleInit() {
-//                title.css('padding-left', '16px');
-//                title.css('position', 'relative');
-//                title.css('transform-origin', '24px');
-//                title.css('z-index', '20')
-//            }
-//            function handleStyle(dim) {
-//                if ((dim.bottom - baseDimensions.top) > legacyToolbarH) {
-//                    title.css('top', ((dim.bottom - baseDimensions.top) - legacyToolbarH) + 'px');
-//                    element.css('height', (dim.bottom - baseDimensions.top) + 'px');
-//                    title.css('transform', 'scale(' + ((titleZoom - 1) * ratio(dim) + 1) + ',' + ((titleZoom - 1) * ratio(dim) + 1) + ')');
-//
-//                } else {
-//                    title.css('top', '0px');
-//                    element.css('height', legacyToolbarH + 'px');
-//                    title.css('transform', 'scale(1,1)');
-//                }
-//                if ((dim.bottom - baseDimensions.top) < legacyToolbarH * 2 && !fab.hasClass('hide')) {
-//                    fab.addClass('hide');
-//                }
-//                if ((dim.bottom - baseDimensions.top) > legacyToolbarH * 2 && fab.hasClass('hide')) {
-//                    fab.removeClass('hide');
-//                }
-//                /* Uncomment the line below if you want shadow inside picture (low performance) */
-//                //element.css('box-shadow', '0 -'+(dim.height*3/4)+'px '+(dim.height/2)+'px -'+(dim.height/2)+'px rgba(0,0,0,'+ratio(dim)+') inset');
-//            }
-//
-//
-//            function ratio(dim) {
-//                var r = (dim.bottom - baseDimensions.top) / dim.height;
-//                if (r < 0)
-//                    return 0;
-//                if (r > 1)
-//                    return 1;
-//                return Number(r.toString().match(/^\d+(?:\.\d{0,2})?/));
-//            }
-//
-//            styleInit();
-//            handleStyle(baseDimensions);
-//
-//
-//            /* Scroll event listener */
-//            angular.element($window).bind("scroll", function () {
-//                var dimensions = header.getBoundingClientRect();
-//                handleStyle(dimensions);
-//                scope.$apply();
-//            });
-//
-//            /* Resize event listener */
-//            angular.element($window).bind('resize', function () {
-//                baseDimensions = header.getBoundingClientRect();
-//                var dimensions = header.getBoundingClientRect();
-//                handleStyle(dimensions);
-//                scope.$apply();
-//            });
-//
-//        };
-//    }]);
-
-cyborgWeb.controller('TestimonalCtrl', function () {
+cyborgWeb.controller('TestimonalCtrl', function ($mdDialog) {
     this.cardNews = [];
 
     for (var i = 0; i < 100; i++) {
@@ -335,7 +237,25 @@ cyborgWeb.controller('TestimonalCtrl', function () {
     };
 
     this.splittedCards = this.splitCards(this.cardNews);
+	this.openFromRight = function(){	
+		$mdDialog.show({
+			controller: 'NewTestimonial',
+			controllerAs: 'nTesti',
+			templateUrl:'newTestimonial.php',	
+			parent: angular.element(document.body),
+			targetEvent: $event,
+			clickOutsideToClose:true
+		}
+		);
+	}
+	
+	function NewTestimonial(){
+		
+	}
+	
 });
+
+
 
 cyborgWeb.directive('mdTestiCard', function () {
     return {

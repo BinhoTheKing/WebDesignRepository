@@ -62,16 +62,13 @@
         transition: transform .1s ease-out;
     }
 
-/*
-[scroll]{
-    position: fixed;
-    top:0;
-}
 
-.scroll-over-toolbar{
-    transform: translateY(-64px);
-    transition: 0.1s;
-}*/
+.md-testi-fab{
+	position: fixed !important;
+	bottom: 16%;
+	right: 9%;
+	text-align:center;
+}
 
 md-card {
     -webkit-transition: 150ms linear;
