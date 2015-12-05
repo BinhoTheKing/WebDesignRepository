@@ -1,35 +1,32 @@
-@charset "utf-8";
-/*.base{
-    padding: 8dp;
-    background-color: #3D3D3D;
-}*/
-.client-img{
+﻿@charset "utf-8";
+.client-img {
     width: 100%;
     height: 100%;
     -webkit-clip-path: circle(50% at 50% 50%);
     clip-path: circle(50% at 50% 50%);
 }
-.lg-center{
+
+.lg-center {
     width: 90%;
     margin-left: 4%;
     margin-right: 4%;
     text-align: center;
 }
 
-.lg-center .center-float{
-    float: left;
-    margin: auto;
-}
+    .lg-center .center-float {
+        float: left;
+        margin: auto;
+    }
 
-/*[md-header-picture] {
+[md-header-picture] {
     position: relative;
-    width:50%;
-    height:0;  Simple trick to keep a 16:9 ratio on your background image (height=0;padding-bottom=56.25%) 
-    padding-bottom: 56.25%;
+    width:10%;
+    height:0; /* Simple trick to keep a 16:9 ratio on your background image (height=0;padding-bottom=56.25%) */
+    padding-bottom: 10%;
     overflow:hidden;
-    background-size:160%;  You can override this value if your picture has a weird ratio 
+    background-size:100%; /* You can override this value if your picture has a weird ratio */
     background-position:50% 50%;
-}*/
+}
 
 [scroll] {
   position:fixed;
@@ -39,17 +36,31 @@
 /* I made a simple scale animation on float action button during scroll */
 
 .main-fab {
-  position:absolute;
-  left: calc(100% - 70px);
-  z-index: 20;
-  transform:scale(1,1);
-  transition: transform .1s ease-out;
+    position: absolute;
+    left: calc(100% - 70px);
+    z-index: 20;
+    -moz-transform: scale(1,1);
+    -ms-transform: scale(1,1);
+    -o-transform: scale(1,1);
+    -webkit-transform: scale(1,1);
+    transform: scale(1,1);
+    -moz-transition: transform .1s ease-out;
+    -o-transition: transform .1s ease-out;
+    -webkit-transition: transform .1s ease-out;
+    transition: transform .1s ease-out;
 }
 
-.main-fab.hide {
-  transform:scale(0,0);
-  transition: transform .1s ease-out;
-}
+    .main-fab.hide {
+        -moz-transform: scale(0,0);
+        -ms-transform: scale(0,0);
+        -o-transform: scale(0,0);
+        -webkit-transform: scale(0,0);
+        transform: scale(0,0);
+        -moz-transition: transform .1s ease-out;
+        -o-transition: transform .1s ease-out;
+        -webkit-transition: transform .1s ease-out;
+        transition: transform .1s ease-out;
+    }
 
 /*
 [scroll]{
@@ -62,14 +73,9 @@
     transition: 0.1s;
 }*/
 
-section{
-    margin-top: 112px;
-}
-
-md-card{
+md-card {
     -webkit-transition: 150ms linear;
     -moz-transition: 150ms linear;
     -o-transition: 150ms linear;
     transition: 150ms linear;
 }
-
